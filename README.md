@@ -207,6 +207,12 @@ import Icon from "@/components/Icon.vue"
 
 ## 代码提交（git）
 
+你需要先执行下面的指令然后自动帮你配置 `Husky` 相关选项。（这一步并不是关键的，但是添加完相关配置的时候会自动在你提交的时候使用 `prettier` 格式化一遍你的代码）
+
+```shell
+npm run husky
+```
+
 我默认加入了`Husky`来控制代码提交的规范，如果你要是按照以往的 `git commit` 肯定是提交失败的，你需要在 `git add .` 之后去执行 `npm run commit` 来提交代码，此时你就可以根据列出的选项中去控制提交的类型及信息了
 
 ![](https://api.daixu.cn:443/upload/image/article/206735195980853248.png)
