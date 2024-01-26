@@ -11,7 +11,7 @@ class HTTP {
     this.instance = axios.create(config)
     // 请求拦截器
     this.instance.interceptors.request.use(
-      (config) => {
+      config => {
         if (config.headers) {
           const token = sessionStorage.getItem("token")
           if (token) {
@@ -20,19 +20,19 @@ class HTTP {
         }
         return config
       },
-      (error) => {
+      error => {
         return Promise.reject(error)
       }
     )
     // 响应拦截器
     this.instance.interceptors.response.use(
-      (response) => {
+      response => {
         if (response.data.code !== 0) {
           ElMessage.error(response.data.msg)
         }
         return response.data
       },
-      (error) => {
+      error => {
         return Promise.reject(ErrorStatus(error))
       }
     )
@@ -42,10 +42,10 @@ class HTTP {
     return new Promise((resolve, reject) => {
       this.instance
         .request<any, T>(config)
-        .then((res) => {
+        .then(res => {
           resolve(res)
         })
-        .catch((err) => {
+        .catch(err => {
           ElMessage.error(err.message)
           reject(err)
         })

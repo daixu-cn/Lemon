@@ -138,7 +138,7 @@ getList()
 ```typescript
 // 请求拦截器
 this.instance.interceptors.request.use(
-  (config) => {
+  config => {
     if (config.headers) {
       const token = sessionStorage.getItem("token")
       if (token) {
@@ -147,7 +147,7 @@ this.instance.interceptors.request.use(
     }
     return config
   },
-  (error) => {
+  error => {
     return Promise.reject(error)
   }
 )
@@ -158,13 +158,13 @@ this.instance.interceptors.request.use(
 ```typescript
 // 响应拦截器
 this.instance.interceptors.response.use(
-  (response) => {
+  response => {
     if (response.data.code !== 0) {
       ElMessage.error(response.data.msg)
     }
     return response.data
   },
-  (error) => {
+  error => {
     return Promise.reject(ErrorStatus(error))
   }
 )

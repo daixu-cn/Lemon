@@ -1,8 +1,13 @@
 {
-  "useTabs": false,
-  "tabWidth": 2,
-  "printWidth": 80,
-  "singleQuote": false,
   "trailingComma": "none",
-  "semi": false
+  "arrowParens": "avoid",
+  "semi": false,
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "printWidth": 180
+      }
+    }
+  ]
 }

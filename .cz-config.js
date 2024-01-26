@@ -30,7 +30,7 @@ module.exports = {
     { value: "-" }
   ],
   // 范围/作用域
-  scopes: [{ name: "-" }],
+  scopes: [],
   // 覆盖消息及步骤提示
   messages: {
     type: "请选择提交类型:",
