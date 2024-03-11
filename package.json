@@ -1,11 +1,13 @@
 {
   "name": "init-vue3",
-  "private": true,
   "version": "1.0.0",
   "author": {
     "name": "daixu",
     "email": "daixu.cn@outlook.com",
     "url": "https://daixu.cn/"
+  },
+  "engines": {
+    "node": ">=18.16.0"
   },
   "scripts": {
     "start": "vite",
