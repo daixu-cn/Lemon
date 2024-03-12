@@ -1,22 +1,25 @@
-import { createRouter, createWebHistory } from "vue-router"
+import { createRouter, createWebHashHistory } from "vue-router"
+import NProgress from "nprogress"
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: [
     {
       path: "/",
-      name: "Frame",
-      component: () => import("@/views/Frame/Frame.vue"),
-      redirect: "/home",
-      children: [
-        {
-          path: "/home",
-          name: "Home",
-          component: () => import("@/views/Home/Home.vue")
-        }
-      ]
+      name: "Home",
+      component: () => import("@/views/Home/Home.vue")
     }
   ]
+})
+
+router.beforeEach(() => {
+  if (!NProgress.isStarted()) {
+    NProgress.start()
+  }
+})
+
+router.afterEach(() => {
+  NProgress.done()
 })
 
 export default router

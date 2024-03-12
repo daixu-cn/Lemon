@@ -1,7 +1,14 @@
 @import "@/assets/style/scss/reset";
+@import "@/assets/style/scss/nprogress.scss";
 @import "@/assets/style/scss/element-plus.scss";
+@import "plyr/dist/plyr.css";
+@import "vue-waterfall-plugin-next/dist/style.css";
 
-body {
-  color: $font-color;
-  font-family: $font-family;
+html {
+  --plyr-color-main: #45d6bb;
+
+  body {
+    color: $font-color;
+    font-family: $font-family;
+  }
 }
