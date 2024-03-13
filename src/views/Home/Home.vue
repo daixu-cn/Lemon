@@ -47,6 +47,7 @@
       :initial-index="viewer.index"
       @close="viewer.show = false"
     />
+    <Live2d />
   </div>
 </template>
 
@@ -59,6 +60,7 @@ import ImageViewer from "@/components/ImageViewer.vue"
 import Player from "@/components/Player.vue"
 import { getRandomIntInclusive } from "@/utils/util"
 import InfiniteScroll from "@/components/InfiniteScroll.vue"
+import Live2d from "@/components/Live2d.vue"
 
 const ASSET_PREFIX = import.meta.env.VITE_APP_ASSET_PREFIX
 
