@@ -160,6 +160,19 @@ getList()
       [lazy="error"] {
         border-radius: 6px;
       }
+
+      [lazy="loading"] {
+        animation: loading 3s linear infinite;
+
+        @keyframes loading {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      }
     }
 
     &:hover {
