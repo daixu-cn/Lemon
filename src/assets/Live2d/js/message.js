@@ -1,3 +1,5 @@
+import { calculateAge } from "@/utils/util"
+
 function renderTip(template, context) {
   const tokenReg = /(\\)?\{([^\{\}\\]+)(\\)?\}/g
   return template.replace(tokenReg, function (word, slash1, token, slash2) {
@@ -23,37 +25,23 @@ String.prototype.renderTip = function (context) {
 }
 
 function initTips() {
-  $.ajax({
-    cache: true,
-    url: new URL(`./message.json`, import.meta.url).href,
-    dataType: "json",
-    success(result) {
-      $.each(result.mouseover, function (index, tips) {
-        $(tips.selector).mouseover(function () {
-          let { text } = tips
-          if (Array.isArray(tips.text)) {
-            text =
-              tips.text[Math.floor(Math.random() * tips.text.length + 1) - 1]
-          }
-          text = text.renderTip({ text: $(this).text() })
-          showMessage(text, 3000)
-        })
-      })
-      $.each(result.click, function (index, tips) {
-        $(tips.selector).click(function () {
-          let { text } = tips
-          if (Array.isArray(tips.text)) {
-            text =
-              tips.text[Math.floor(Math.random() * tips.text.length + 1) - 1]
-          }
-          text = text.renderTip({ text: $(this).text() })
-          showMessage(text, 3000)
-        })
-      })
-    }
+  $("#landlord #live2d").click(function () {
+    const messages = [
+      "你想干嘛？",
+      "不要动手动脚的！快把手拿开~~",
+      "真…真的是不知羞耻！",
+      "再摸的话我可要报警了！⌇●﹏●⌇",
+      "吾家柠檬初长成\n活泼可爱惹人疼",
+      "110吗?这里有个变态一直在摸我(ó﹏ò｡)",
+      "我有柠檬，你没有！",
+      `柠檬年龄:${calculateAge("2023-06-21")}`,
+      `上次驱虫:2024-03-02(${calculateAge("2024-03-02")})`
+    ]
+    let text = messages[Math.floor(Math.random() * messages.length + 1) - 1]
+    text = text.renderTip({ text: $(this).text() })
+    showMessage(text, 3000)
   })
 }
-initTips()
 
 function showMessage(text, timeout) {
   if (Array.isArray(text)) {
@@ -79,6 +67,7 @@ function showHitokoto() {
 }
 
 export default function initMessage() {
+  initTips()
   showMessage("吾家柠檬初长成\n活泼可爱惹人疼", 5000)
   setInterval(showHitokoto, 6000)
 }
