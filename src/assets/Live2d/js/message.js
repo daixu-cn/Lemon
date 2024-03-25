@@ -27,19 +27,20 @@ String.prototype.renderTip = function (context) {
 function initTips() {
   $("#landlord #live2d").click(function () {
     const messages = [
+      "我有柠檬，你没有！",
       "你想干嘛？",
       "不要动手动脚的！快把手拿开~~",
       "真…真的是不知羞耻！",
       "再摸的话我可要报警了！⌇●﹏●⌇",
       "吾家柠檬初长成\n活泼可爱惹人疼",
       "110吗?这里有个变态一直在摸我(ó﹏ò｡)",
-      "我有柠檬，你没有！",
-      `柠檬年龄:${calculateAge("2023-06-21")}`,
-      `上次驱虫:2024-03-02(${calculateAge("2024-03-02")})`
+      `柠檬: 我已经有${calculateAge("2023-06-21")}啦！`,
+      `柠檬: 上次驱虫 2024-03-02 (${calculateAge("2024-03-02")})`,
+      `猫咪至少每三个月驱虫一次哦！`
     ]
     let text = messages[Math.floor(Math.random() * messages.length + 1) - 1]
     text = text.renderTip({ text: $(this).text() })
-    showMessage(text, 3000)
+    showMessage(text, 5000)
   })
 }
 
